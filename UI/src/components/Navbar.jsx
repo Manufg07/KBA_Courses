@@ -11,10 +11,10 @@ const Navbar = () =>{
             
         </div>
         <div className='flex justify-center md:justify-end items-center mt-2 md:mt-0 space-x-5 md:space-x-10'>
-            <a href="#" className='ml-20'>Home</a>
-            <a href="#" className='ml-20'>Courses</a>
-            <a href="#" className='ml-20'>Contact Us</a>
-            <a href="#" className='ml-20'>Add Course</a>
+            <a href="/" className='ml-20'>Home</a>
+            <a href="/Course" className='ml-20'>Courses</a>
+            <a href="Contact" className='ml-20'>Contact Us</a>
+            <a href="/Add" className='ml-20'>Add Course</a>
         </div>
     </div>
         </>
