@@ -6,7 +6,7 @@ import MainLayout from "./Layout/MainLayout"
 import Contact from "./components/Contact"
 import AddCourse from "./components/AddCourse"
 import EditCourse from "./components/EditCourse"
-import CoursePage from "./components/CoursePage"
+import CoursePage, { courseLoader } from "./components/CoursePage"
 
 
 function App() {
@@ -18,8 +18,8 @@ function App() {
           <Route path="/Course" element={<CoursesPage/>} />
           <Route path="/Contact" element={<Contact/>} />
           <Route path="/Add" element={<AddCourse/>} />
-          <Route path="/Edit" element={<EditCourse/>} />
-          <Route path="/CoursePage/:id" element={<CoursePage/>} />
+          <Route path="/Edit/:id" element={<EditCourse/>} loader={courseLoader}/>
+          <Route path="/CoursePage/:id" element={<CoursePage/>} loader={courseLoader} />
           <Route path="/*" element={<NotFoundPage/>} />
       </Route>
       </>

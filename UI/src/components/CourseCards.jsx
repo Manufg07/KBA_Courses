@@ -13,7 +13,7 @@ import Cards from './Cards'
   useEffect(() => {
     const fetchCourses = async(res,req) =>{
       try{
-        const res = await fetch('http://localhost:5000/courses')
+        const res = await fetch('/api/courses')
         const data = await res.json();
         
         console.log('course', data)
