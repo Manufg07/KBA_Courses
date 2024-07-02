@@ -10,7 +10,8 @@ const HomePage = () => {
   return (
     <>
     <Hero />
-    <CourseCards />
+    {/* <CourseCards  num={3} /> */}
+    <CourseCards  isHome ={true} />
     <AllCourse />
     </>
   )

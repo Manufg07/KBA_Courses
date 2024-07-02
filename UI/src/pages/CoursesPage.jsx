@@ -4,7 +4,7 @@ import CourseCards from '../components/CourseCards'
 const CoursesPage = () => {
   return (
     <>
-        <CourseCards/>
+        <CourseCards isHome = {false} />
     </>
   )
 }
