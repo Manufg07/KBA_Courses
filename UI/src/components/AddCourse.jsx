@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AddCourse = () => {
 
@@ -21,6 +22,7 @@ const AddCourse = () => {
       price
     }
    const res= AddCourseSubmit(newCourse)
+   toast.success('Course added successfully')
    navigate('/course')
   }
   
@@ -77,7 +79,6 @@ const AddCourse = () => {
                     required
                     value={courseId}
                     onChange={(e)=> setCourseId(e.target.value)} 
-                    
                   />
                 </div>
 

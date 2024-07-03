@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import banner from '../assets/banner-kba.png'
 import { Link, Navigate, useLoaderData, useNavigate, useParams } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 const CoursePage = () => {
 
@@ -37,6 +38,7 @@ const CoursePage = () => {
     const res = await fetch(`/api/courses/${id}`, 
       {method:'DELETE'}
     )
+    toast.success('Deleted')
     navigate('/course')
   }
 

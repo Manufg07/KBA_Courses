@@ -7,14 +7,24 @@ import Contact from "./components/Contact"
 import AddCourse from "./components/AddCourse"
 import EditCourse from "./components/EditCourse"
 import CoursePage, { courseLoader } from "./components/CoursePage"
+import SignupPage from "./pages/SignupPage"
+import LoginPage from "./pages/LoginPage"
+import AauthLayout from "./Layout/AauthLayout"
 
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
+
+      <Route path="/" element={<AauthLayout/>}>
+          <Route index element ={<LoginPage/>}/>
+          <Route path="/sign-up" element ={<SignupPage/>}/>
+      </Route>
+      
+
       <Route path="/" element={<MainLayout/>}>
-          <Route path="/" element={<HomePage/>} />
+          <Route path="/home" element={<HomePage/>} />
           <Route path="/Course" element={<CoursesPage/>} />
           <Route path="/Contact" element={<Contact/>} />
           <Route path="/Add" element={<AddCourse/>} />
