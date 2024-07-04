@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import banner from '../assets/banner-kba.png'
 import { Link, Navigate, useLoaderData, useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify';
+import { getUserType } from '../pages/LoginPage';
 
 const CoursePage = () => {
 
@@ -31,6 +32,7 @@ const CoursePage = () => {
  
   const course = useLoaderData();
   const {id} = useParams();
+  const userType = getUserType()
 
   const deleteCourse = async () => {
     const confirm = window.confirm('Sure want to delete ?')
@@ -106,9 +108,11 @@ const CoursePage = () => {
             </div>
           </div>
           <div className="flex flex-row justify-end gap-4 mr-[205px] ">
+            {userType == 'admin' && <>
             <Link to={`/Edit/${id}`}  className="flex bg-blue-500 hover:bg-blue-600 text-white font-bold  rounded-full h-10 w-32 focus:outline-none focus:shadow-outline justify-center items-center">Edit Course</Link>
             <button onClick={() => deleteCourse(id)}  className="flex bg-red-500 hover:bg-red-600 text-white font-bold  rounded-full h-10 w-32 focus:outline-none focus:shadow-outline  justify-center items-center">Remove Course</button>
-          
+          </>}
+
             </div>
         </div>
 {/* } */}

@@ -1,5 +1,6 @@
 import kba from '../assets/kbalogo.png'
 import { Link } from 'react-router-dom'
+import Logout from './Logout'
 const Navbar = () =>{
     return(
         <>
@@ -16,6 +17,7 @@ const Navbar = () =>{
             <Link to="/Course" className='ml-20'>Courses</Link>
             <Link to="/Contact" className='ml-20'>Contact Us</Link>
             <Link to="/Add" className='ml-20'>Add Course</Link>
+            <Logout/>
         </div>
     </div>
         </>

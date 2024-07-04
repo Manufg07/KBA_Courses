@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const courses = require("../models/courses");
+const verifyToken = require("../middleware/authMiddleware")
 
-router.get("/courses", async (req, res) => {
+router.get("/courses",verifyToken, async (req, res) => {
   const details = await courses.find({});
   res.json(details);
 });
@@ -57,6 +58,12 @@ router.put("/courses/:id", async (req, res) => {
 
 router.delete("/courses/:id", async (req, res) => {
   const courseId = req.params.id;
+  if(req.userType != 'admin'){
+    return res
+    .status(401)
+    .json('Access denied')
+  }
+
   try {
     const result = await courses.findOneAndDelete({ courseId: courseId });
     if (!result) {

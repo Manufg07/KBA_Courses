@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { jwtDecode } from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -102,19 +102,19 @@ const loginSubmit = async (e) => {
 };
 
 
-// const userTypeLoader = () => {
-//   const authToken = document.cookie
-//     .split("; ")
-//     .find((row) => row.startsWith("Authtoken"))
-//     ?.split("=")[1];
-//   console.log("documemnt.cookie vslue", authToken);
+const getUserType = () => {
+  const authToken = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("Authtoken"))
+    ?.split("=")[1];
+  console.log("documemnt.cookie vslue", authToken);
 
-//   const decoded = jwtDecode(authToken);
-//   console.log("decoded", decoded);
-//   const userType = decoded.userType;
-//   console.log("usertype", userType);
-//   return userType;
-// };
+  const decoded = jwtDecode(authToken);
+  console.log("decoded", decoded);
+  const userType = decoded.userType;
+  console.log("usertype", userType);
+  return userType;
+};
 
-export default LoginPage
-// { LoginPage as default, userTypeLoader };
+// export default LoginPage
+export { LoginPage as default, getUserType };
